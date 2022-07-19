@@ -1,0 +1,83 @@
+# ------------------------------------------ URL
+
+STAYTUS_URL=https://status.example.com
+
+# ------------------------------------------ Staytus API Access
+
+TOKEN=12345678-1234-1234-1234-12345678
+SECRET=123456789*123456789*
+
+# ------------------------------------------ Verbose mode, pre-reset status, timeout
+
+# enables basic verbose mode (VERBOSE=1) or enhanced mode (VERBOSE=2)
+#VERBOSE=<0|1|2>
+
+# resets ALL services to predefined status-permalink (env: PERMALINK_RESET)
+#RESET=<0|1>
+
+# ncat and curl timeout
+#TIMEOUT=5
+
+# enable red colored statys api errors (not service errors!)
+#ANSI=<0|1>
+
+# ------------------------------------------ Status Permalinks
+
+#PERMALINK_OK=operational
+#PERMALINK_ERR=major-outage
+#PERMALINK_RESET=maintenance
+
+# ------------------------------------------ Check lists
+
+# check ssh port (tcp 22)
+# staytus_ssh[permalink]=<ip|fqdn>
+staytus_ssh[server-ssh]=my.example.com
+
+# check http port (tcp 80)
+#staytus_http[permalink]=<ip|fqdn>
+staytus_http[server-web]=my.example.com
+
+# check http port (tcp 80)
+# staytus_https[permalink]=<ip|fqdn>
+staytus_http[server-websecure]=1.2.3.4
+
+# check http response code
+# staytus_websites[permalink]=<ip|fqdn>
+# success if HTTP status code is 2xx, 3xx, 401/notauthorized
+staytus_websites[web-examplecom]=http://www.example.com/
+staytus_websites[web-examplenet]=http://www.example.net/
+
+# check smtp port (tcp 25)
+# staytus_smtp[permalink]=<ip|fqdn>
+staytus_smtp[mail-smtp]=mx.example.com
+
+# check alternative smtp port (tcp 587)
+# staytus_smtp_alt[permalink]=<ip|fqdn>
+staytus_smtp_alt[mail-smtp-alt]=mx.example.com
+
+# check smtps port (tcp 465)
+# staytus_smtps[permalink]=<ip|fqdn>
+staytus_smtps[mail-smtps]=mx.example.com
+
+# check imap port (tcp 110)
+# staytus_imap[permalink]=<ip|fqdn>
+staytus_imap[mail-imap]=mx.example.com
+
+# check imaps port (tcp 995)
+# staytus_imaps[permalink]=<ip|fqdn>
+staytus_imaps[mail-imaps]=1.2.3.4
+
+# check dns port (tcp 53, no udp!)
+# staytus_dns[permalink]=<ip|fqdn>
+staytus_dns[dns-bender]=dns1.example.com
+staytus_dns[dns-fry]=dns2.example.com
+
+# check mysql port (tcp 3306)
+# staytus_mysql[permalink]=<ip|fqdn>
+staytus_mysql[mariadb]=192.168.10.200
+
+# set status on service without any checks
+# staytus_static[permalink]=<status-permalink>
+staytus_static[dummy1]=disabled
+staytus_static[dummy2]=maintenance
+staytus_static[dummy3]=major-outage
